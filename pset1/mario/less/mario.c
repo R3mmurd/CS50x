@@ -1,5 +1,5 @@
 /*
-Program that prints out a double half-pyramid.
+Program that prints out a half-pyramid.
 
 Author: Alejandro Mujica (aledrums@gmail.com)
 */
@@ -26,15 +26,6 @@ int main(void)
         }
 
         // Drawing left blocks
-        for (int j = 0; j < i; ++j)
-        {
-            printf("#");
-        }
-
-        // Middle space
-        printf("  ");
-
-        // Drawing right blocks
         for (int j = 0; j < i; ++j)
         {
             printf("#");
