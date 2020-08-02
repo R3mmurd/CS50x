@@ -6,7 +6,6 @@
 */
 #include "helpers.h"
 #include <stdlib.h>
-#include <stdio.h>
 #include <math.h>
 
 // Convert image to grayscale
@@ -25,6 +24,31 @@ void grayscale(int height, int width, RGBTRIPLE image[height][width])
     }
     return;
 }
+
+#define MIN(X,Y) ((X) < (Y) ? (X) : (Y))
+
+// Convert image to sepia
+void sepia(int height, int width, RGBTRIPLE image[height][width])
+{
+    for (int i = 0; i < height; ++i)
+    {
+        for (int j = 0; j < width; ++j)
+        {
+            BYTE originalRed = image[i][j].rgbtRed;
+            BYTE originalGreen = image[i][j].rgbtGreen;
+            BYTE originalBlue = image[i][j].rgbtBlue;
+            double sepiaRed = .393 * originalRed + .769 * originalGreen + .189 * originalBlue;
+            double sepiaGreen = .349 * originalRed + .686 * originalGreen + .168 * originalBlue;
+            double sepiaBlue = .272 * originalRed + .534 * originalGreen + .131 * originalBlue;
+            image[i][j].rgbtBlue = MIN(255, round(sepiaBlue));
+            image[i][j].rgbtGreen = MIN(255, round(sepiaGreen));
+            image[i][j].rgbtRed = MIN(255, round(sepiaRed));
+        }
+    }
+    return;
+}
+
+#undef MIN
 
 // Reflect image horizontally
 void reflect(int height, int width, RGBTRIPLE image[height][width])
@@ -90,70 +114,3 @@ void blur(int height, int width, RGBTRIPLE image[height][width])
 
     return;
 }
-
-#define MIN(X,Y) ((X) < (Y) ? (X) : (Y))
-
-// Detect edges
-void edges(int height, int width, RGBTRIPLE image[height][width])
-{
-    int Gx[3][3] = {{-1, 0, 1}, {-2, 0, 2}, {-1, 0, 1}};
-    int Gy[3][3] = {{-1, -2, -1}, {0, 0, 0}, {1, 2, 1}};
-
-    RGBTRIPLE(*image_cpy)[width] = calloc(height, width * sizeof(RGBTRIPLE));
-
-    for (int i = 0; i < height; ++i)
-    {
-        for (int j = 0; j < width; ++j)
-        {
-            image_cpy[i][j] = image[i][j];
-        }
-    }
-
-    for (int i = 0; i < height; ++i)
-    {
-        for (int j = 0; j < width; ++j)
-        {
-            long xr = 0, xg = 0, xb = 0;
-            long yr = 0, yg = 0, yb = 0;
-            int counter = 0;
-
-            for (int ip = i - 1, ik = 0; ip <= i + 1; ++ip, ++ik)
-            {
-                if (ip < 0 || ip >= height)
-                {
-                    continue;
-                }
-
-                for (int jp = j - 1, jk = 0; jp <= j + 1; ++jp, ++jk)
-                {
-                    if (jp < 0 || jp >= width)
-                    {
-                        continue;
-                    }
-
-                    xr += image_cpy[ip][jp].rgbtRed * Gx[ik][jk];
-                    xg += image_cpy[ip][jp].rgbtGreen * Gx[ik][jk];
-                    xb += image_cpy[ip][jp].rgbtBlue * Gx[ik][jk];
-
-                    yr += (int)image_cpy[ip][jp].rgbtRed * Gy[ik][jk];
-                    yg += (int)image_cpy[ip][jp].rgbtGreen * Gy[ik][jk];
-                    yb += (int)image_cpy[ip][jp].rgbtBlue * Gy[ik][jk];
-
-                    ++counter;
-                }
-            }
-
-            int r = round(sqrt(xr * xr + yr * yr));
-            int g = round(sqrt(xg * xg + yg * yg));
-            int b = round(sqrt(xb * xb + yb * yb));
-
-            image[i][j].rgbtRed = MIN(r, 255);
-            image[i][j].rgbtGreen = MIN(g, 255);
-            image[i][j].rgbtBlue = MIN(b, 255);
-        }
-    }
-
-    return;
-}
-
-#undef MIN
