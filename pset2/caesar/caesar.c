@@ -1,7 +1,7 @@
 /*
-Program that encrypts messages using Caesar’s cipher.
+    Program that encrypts messages using Caesar’s cipher.
 
-Author: Alejandro Mujica (aledrums@gmail.com)
+    Author: Alejandro Mujica (aledrums@gmail.com)
 */
 #include <stdio.h>
 #include <stdlib.h>

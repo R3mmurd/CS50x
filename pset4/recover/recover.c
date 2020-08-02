@@ -1,7 +1,7 @@
 /*
-Program that recovers JPEGs from a forensic image.
+    Program that recovers JPEGs from a forensic image.
 
-Author: Alejandro Mujica (aledrums@gmail.com)
+    Author: Alejandro Mujica (aledrums@gmail.com)
 */
 #include <stdio.h>
 #include <stdlib.h>

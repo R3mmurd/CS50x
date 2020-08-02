@@ -1,8 +1,8 @@
 /*
-program that determines whether a provided credit card number
-is valid according to Luhn’s algorithm.
+    program that determines whether a provided credit card number
+    is valid according to Luhn’s algorithm.
 
-Author: Alejandro Mujica (aledrums@gmail.com)
+    Author: Alejandro Mujica (aledrums@gmail.com)
 */
 #include <stdio.h>
 #include <cs50.h>

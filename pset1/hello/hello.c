@@ -1,7 +1,7 @@
 /*
-Program that prints out a simple greeting to the user.
+    Program that prints out a simple greeting to the user.
 
-Author: Alejandro Mujica (aledrums@gmail.com)
+    Author: Alejandro Mujica (aledrums@gmail.com)
 */
 #include <stdio.h>
 #include <cs50.h>

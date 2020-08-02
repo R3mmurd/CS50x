@@ -1,8 +1,8 @@
 /*
-Program that runs a Tideman election.
+    Program that runs a Tideman election.
 
-Base program by CS50
-Solution by: Alejandro Mujica (aledrums@gmail.com)
+    Base program by CS50
+    Solution by: Alejandro Mujica (aledrums@gmail.com)
 */
 #include <cs50.h>
 #include <stdio.h>

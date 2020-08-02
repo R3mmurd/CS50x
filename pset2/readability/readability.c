@@ -1,8 +1,8 @@
 /*
-Program that computes the approximate grade level needed to
-comprehend some text.
+    Program that computes the approximate grade level needed to
+    comprehend some text.
 
-Author: Alejandro Mujica (aledrums@gmail.com)
+    Author: Alejandro Mujica (aledrums@gmail.com)
 */
 #include <stdio.h>
 #include <cs50.h>

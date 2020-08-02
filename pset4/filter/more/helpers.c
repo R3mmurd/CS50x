@@ -1,8 +1,8 @@
 /*
-Algorithms to filter images.
+    Algorithms to filter images.
 
-Base program by CS50
-Solution by: Alejandro Mujica (aledrums@gmail.com)
+    Base program by CS50
+    Solution by: Alejandro Mujica (aledrums@gmail.com)
 */
 #include "helpers.h"
 #include <stdlib.h>

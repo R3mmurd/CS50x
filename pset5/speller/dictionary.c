@@ -1,7 +1,7 @@
 /*
-Allgorithms to handle a dictionary by using a hash table.
+    Allgorithms to handle a dictionary by using a hash table.
 
-Author: Alejandro Mujica (aledrums@gmail.com)
+    Author: Alejandro Mujica (aledrums@gmail.com)
 */
 
 // Implements a dictionary's functionality

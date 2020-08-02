@@ -1,7 +1,7 @@
 /*
-Program that prints out a double half-pyramid.
+    Program that prints out a double half-pyramid.
 
-Author: Alejandro Mujica (aledrums@gmail.com)
+    Author: Alejandro Mujica (aledrums@gmail.com)
 */
 #include <stdio.h>
 #include <cs50.h>
