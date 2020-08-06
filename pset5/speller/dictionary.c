@@ -36,7 +36,7 @@ bool check(const char *word)
 {
     const unsigned int i = hash(word) % N;
 
-    node * p = table[i];
+    node *p = table[i];
 
 
     while (p != NULL)
@@ -59,7 +59,8 @@ unsigned int hash(const char *word)
     const int m = 1e9 + 9;
     unsigned int hash_value = 0;
     unsigned int p_pow = 1;
-    for (char *c = (char *)word; *c != '\0'; ++c) {
+    for (char *c = (char *)word; *c != '\0'; ++c)
+    {
         hash_value = (hash_value + (tolower(*c) - 'a' + 1) * p_pow) % m;
         p_pow = (p_pow * p) % m;
     }
@@ -69,7 +70,7 @@ unsigned int hash(const char *word)
 // Loads dictionary into memory, returning true if successful else false
 bool load(const char *dictionary)
 {
-    FILE * f = fopen(dictionary, "r");
+    FILE *f = fopen(dictionary, "r");
 
     if (f == NULL)
     {
@@ -96,7 +97,7 @@ bool load(const char *dictionary)
         }
 
         i = hash(word) % N;
-        node * p = (node *) malloc(sizeof(node));
+        node *p = (node *) malloc(sizeof(node));
 
         // The new node points to the first element of the entry
         p->next = table[i];
@@ -126,11 +127,11 @@ bool unload(void)
 {
     for (int i = 0; i < N; ++i)
     {
-        node * p = table[i];
+        node *p = table[i];
 
         while (p != NULL)
         {
-            node * n = p->next;
+            node *n = p->next;
             free(p);
             p = n;
         }
