@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">Notes</string>
+    <string name="snack_bar_text">Undo delete note</string>
+</resources>
