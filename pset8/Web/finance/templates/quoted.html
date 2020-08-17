@@ -1,0 +1,20 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Quoted stock
+{% endblock %}
+
+
+{% block main %}
+
+    <div class="card">
+        <div class="card-body">
+            <h5 class="card-title">{{ stock["name"] }}</h5>
+            <h6 class="card-subtitle mb-2 text-muted">{{ stock["symbol"] }}</h6>
+            <h1 class="card-title pricing-card-title">{{ stock["price"] }}</h1>
+        </div>
+    </div>
+
+    <a href="/quote">Quote another stock</a>
+
+{% endblock %}
